@@ -1,0 +1,84 @@
+import Image from "next/image"
+import { BarChart3, BookOpen, Calendar, FileText, ImageIcon, Users2, GraduationCap, ClipboardList } from 'lucide-react'
+import { Card, CardContent } from "@/components/ui/card"
+
+export default function Component() {
+  return (
+    <div className="min-h-screen bg-[#f8f9fa]">
+      {/* Header Banner */}
+      <div className="relative bg-gradient-to-b from-[#1a365d] to-[#2d4a8a]">
+        <div className="container mx-auto px-4 py-8 text-white">
+          <div className="relative w-full max-w-5xl mx-auto aspect-[4/3] rounded-lg overflow-hidden shadow-xl mb-8">
+            <Image 
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/_e62ae350-7340-417d-b5f1-2439e8082339-qvVQ8zMIFLqAuKhLz014xNNI1D8APg.jpeg"
+              alt="SSC 26 Batch"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="text-center mt-6">
+            <h1 className="text-3xl font-bold">নওয়াপাড়া শংকরপাশা সরকারি মাধ্যমিক বিদ্যালয়</h1>
+            <p className="text-lg mt-2">EIIN -115466</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-white border-b shadow-sm">
+        <div className="container mx-auto px-4">
+          <ul className="flex space-x-6 overflow-x-auto py-4 text-sm">
+            {[
+              { name: "প্রথম পাতা", color: "text-[#1a365d]" },
+              { name: "কার্যক্রম বিবরণ", color: "text-[#2d4a8a]" },
+              { name: "পাঠ্যক্রম", color: "text-[#1a365d]" },
+              { name: "একাডেমিক তথ্য", color: "text-[#2d4a8a]" },
+              { name: "ছাত্রছাত্রী", color: "text-[#1a365d]" },
+              { name: "পিটিপি", color: "text-[#2d4a8a]" },
+              { name: "গ্যালারি", color: "text-[#1a365d]" }
+            ].map((item) => (
+              <li key={item.name} className="whitespace-nowrap">
+                <a
+                  href="#"
+                  className={`${item.color} hover:text-[#f97316] transition-colors duration-200 font-medium`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {[
+            { icon: FileText, title: "নোটিশ", color: "bg-gradient-to-br from-orange-100 to-orange-50 hover:from-orange-200 hover:to-orange-100" },
+            { icon: Users2, title: "শিক্ষার্থী ব্যবস্থাপনা", color: "bg-gradient-to-br from-blue-100 to-blue-50 hover:from-blue-200 hover:to-blue-100" },
+            { icon: BarChart3, title: "পরিসংখ্যান", color: "bg-gradient-to-br from-purple-100 to-purple-50 hover:from-purple-200 hover:to-purple-100" },
+            { icon: Calendar, title: "একাডেমিক ক্যালেন্ডার", color: "bg-gradient-to-br from-green-100 to-green-50 hover:from-green-200 hover:to-green-100" },
+            { icon: BookOpen, title: "ক্লাস কার্যক্রম", color: "bg-gradient-to-br from-red-100 to-red-50 hover:from-red-200 hover:to-red-100" },
+            { icon: ImageIcon, title: "ফটো গ্যালারি", color: "bg-gradient-to-br from-yellow-100 to-yellow-50 hover:from-yellow-200 hover:to-yellow-100" },
+            { icon: GraduationCap, title: "পরীক্ষার ফলাফল", color: "bg-gradient-to-br from-emerald-100 to-emerald-50 hover:from-emerald-200 hover:to-emerald-100" },
+            { icon: ClipboardList, title: "পিটিপি", color: "bg-gradient-to-br from-cyan-100 to-cyan-50 hover:from-cyan-200 hover:to-cyan-100" }
+          ].map((item, index) => (
+            <Card 
+              key={index}
+              className={`group transition-all duration-300 hover:shadow-lg border-none ${item.color}`}
+            >
+              <CardContent className="p-6 flex flex-col items-center justify-center text-center space-y-4">
+                <div className="p-3 rounded-full bg-white/80 group-hover:bg-white transition-colors duration-300">
+                  <item.icon className="h-8 w-8 text-[#1a365d] group-hover:text-[#f97316] transition-colors duration-300" />
+                </div>
+                <h2 className="text-sm font-medium text-[#1a365d] group-hover:text-[#1a365d]/80 transition-colors duration-300">
+                  {item.title}
+                </h2>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </main>
+    </div>
+  )
+}
